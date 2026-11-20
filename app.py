@@ -18,6 +18,11 @@ button{background:#174d38;color:white;border:0;cursor:pointer}[role=alert]{color
 
 
 def create_app(config, opener=None):
+    required = ("APP_DOMAIN", "ISSUER_URL", "ISSUER_PUBLIC_KEY", "ADMIN_PASSWORD")
+    missing = [name for name in required if not config.get(name, "").strip()]
+    if missing:
+        raise ValueError("Variabel aktivasi wajib diisi: " + ", ".join(missing))
+
     username = config.get("ADMIN_USER", "admin")
     password = config["ADMIN_PASSWORD"]
     if len(password) < 16:

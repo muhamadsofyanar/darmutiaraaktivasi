@@ -6,7 +6,7 @@ Aplikasi uji untuk membuktikan bahwa kunci dari penerbit Darmutiara bisa dipakai
 
 1. Jalankan paket penerbit `darmutiara-lisensi-v1.zip` sebagai resource tersendiri dengan domain HTTPS, misalnya `lisensi.darmutiara.com`.
 2. Buat repositori untuk isi paket klien ini dan hubungkan sebagai resource Docker Compose baru. Arahkan domain uji HTTPS ke service `app`, port internal `8000`. Gunakan domain uji yang berbeda dari instalasi aktif yang sedang dipakai.
-3. Isi variabel resource lalu deploy.
+3. Di **Environment Variables** pada resource klien, isi variabel berikut dan aktifkan **Available at Runtime**. Simpan lalu deploy. Compose dapat membangun image tanpa nilai variabel ini. Jika nilai wajib belum tersedia saat container mulai, log aplikasi akan menyebutkan nama variabel yang perlu diisi.
 
 | Variabel | Isi |
 |---|---|
